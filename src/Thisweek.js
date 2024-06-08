@@ -1,9 +1,9 @@
 import Card from "./card";
 
 const cards = [
-  ["Greek salad", "Card 1 Content", "./card1.png", "Card 1 Image","$12.99"],
-  ["Bruchetta", "Card 2 Content", "./card2.png", "Card 2 Image","$5.99"],
-  ["Lemon Dessert", "Card 3 Content", "./card3.png", "Card 3 Image","$5.00"],
+  ["Greek salad", "The famous greek salad of crispy lettuce, peppers, olivres and our Chicago style feta cheese. garnished with crunchy garlic and rosemary croutons", "./greeksalad.jpg", "Card 1 Image","$12.99"],
+  ["Bruchetta", "The famous greek salad of crispy lettuce, peppers, olivres and our Chicago style feta cheese. garnished with crunchy garlic and rosemary croutons", "./bruchetta.svg", "Card 2 Image","$5.99"],
+  ["Lemon Dessert", "The famous greek salad of crispy lettuce, peppers, olivres and our Chicago style feta cheese. garnished with crunchy garlic and rosemary croutons", "./lemondessert.jpg", "wtf?","$5.00"],
 ];
 function ThisWeek() {
     return (
@@ -18,7 +18,7 @@ function ThisWeek() {
           key={index} // 使用索引作为 key，确保组件的唯一性
           title={card[0]} 
           content={card[1]} 
-          imagePath={card[2]} 
+          imgepath={card[2]} 
           imgalt={card[3]}
           price={card[4]}
         />

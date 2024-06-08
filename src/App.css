@@ -35,11 +35,16 @@ a {
 }
 
 .image {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   overflow: hidden;
   position: relative;
-  top: 50px;
+  top: 170px;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
 }
 
 .image img {
@@ -51,21 +56,28 @@ a {
 
 .background {
   background-color: #495E57;
-  height: 300px;
+  height: 500px;
 }
 
 .limited-box {
-  width: 200px; /* 限制宽度为200px，可以根据需要调整 */
-  margin: 0 auto; /* 自动居中 */
-  color:#edefee
+  width: 400px; 
+  color:#edefee;
+  margin-top: -50px;
+  font-family: Karla, sans-serif;
+  font-size: 18pt;
 }
 
 .h1incta {
-  color:#f4ce14
+  color:#f4ce14;
+  font-size: 64pt;
+  font-family: Markazi Text, serif;
 }
 
 .h3incta {
-  color:#edefee
+  color:#edefee;
+  font-size: 40pt;
+  font-family: Markazi Text, serif;
+  margin-top: -70px;
 }
 
 .bincta {
@@ -73,8 +85,10 @@ a {
   border:none;
   padding: 10px 20px;
   border-radius: 10px;
-  margin: 20px 0;
+  margin: 20px 50px;
   cursor: pointer;
+  font-size: 18pt;
+  
 }
 .call-to-action button:hover {
   background-color: #e4be04; /* 设置按钮悬停时的背景颜色 */
@@ -92,6 +106,9 @@ a {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-family: Markazi Text, serif;
+  font-size: 20pt;
+  font-weight: bold;
 }
 
 .thisweek-header h2 {
@@ -116,20 +133,47 @@ a {
 
 .card-container {
   display: flex;
-  justify-content: space-between;
   margin-top: 20px;
+  justify-content: space-around
 }
 
 .card{
-  width: 200px;
+  width: 400px;
   background-color: #EDEFEE;
-  border-radius: 10px;
+}
+.card-text {
   padding: 20px;
-  margin: 0 10px;
-
 }
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.card-header p {
+  color: #ee9972;
+  font-size: 16pt;
+  line-height: 1.5; 
+}
+.card-header h4 {
+  font-size: 18pt;
+}
+.card-content {
+  color: #495E57;
+}
+
+.card-img {
+  width: 100%;
+  height: 50%;
+  margin: none;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card button {
+  font-size: 16px;
+  border: none;
+  background-color: #EDEFEE;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
 }
