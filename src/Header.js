@@ -3,7 +3,7 @@
 function Header() {
   return (
     <header>
-      {/* Add the logo here later */}
+      <img src="/logo.png" alt="logo" />
     </header>
   );
 }
