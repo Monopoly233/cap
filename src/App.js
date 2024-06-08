@@ -11,7 +11,7 @@ function App() {
     <Nav />
     <Main />
     <Footer />
-    </>>
+    </>
   );
 }
 
