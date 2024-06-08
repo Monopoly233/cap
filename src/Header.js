@@ -3,7 +3,9 @@
 function Header() {
   return (
     <header>
-      <a href="/Main"><img src="/logo.png" alt="logo"/></a>
+      <a href="/Main">
+      <img class="imginh"src="/logo.png" alt="logo"/>
+      </a>
     </header>
   );
 }

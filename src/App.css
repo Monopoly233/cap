@@ -1,5 +1,10 @@
 /*color #495E57 #F4CE14*/
 /* #EE9972 #FBDABB #EDEFEE #333333*/
+
+.imginh{/*make in smaller*/
+  width:50%;
+  height:auto;
+}
 nav ul {
   display: flex;
   list-style-type: none; /* Remove default list styles */
@@ -26,13 +31,12 @@ a {
 .call-to-action {
   display: flex;
   justify-content:  space-between;
-  align-items: center;
   margin: 0 10%;
 }
 
 .image {
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   overflow: hidden;
   position: relative;
   top: 50px;
@@ -47,4 +51,71 @@ a {
 
 .background {
   background-color: #495E57;
+  height: 300px;
+}
+
+.limited-box {
+  width: 200px; /* 限制宽度为200px，可以根据需要调整 */
+  margin: 0 auto; /* 自动居中 */
+  color:#edefee
+}
+
+.h1incta {
+  color:#f4ce14
+}
+
+.h3incta {
+  color:#edefee
+}
+
+.bincta {
+  background-color: #f4ce14;
+  border:none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.call-to-action button:hover {
+  background-color: #e4be04; /* 设置按钮悬停时的背景颜色 */
+}
+
+/*this week*/
+.thisweek {
+  display: flex;
+  margin: 100px 10%;
+  flex-direction: column;
+}
+
+.thisweek-header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.thisweek-header h2 {
+  margin: 0; /* 移除默认外边距 */
+}
+
+.thisweek-header button {
+  padding: 10px 20px; /* 设置按钮内边距 */
+  font-size: 16px; /* 设置按钮字体大小 */
+  border: none; /* 移除默认边框 */
+  border-radius: 5px; /* 设置按钮圆角边框 */
+  background-color: #f4ce14; /* 设置按钮背景颜色 */
+  color: #000; /* 设置按钮文本颜色 */
+  cursor: pointer; /* 鼠标悬停时显示为指针 */
+  transition: background-color 0.3s; /* 添加背景颜色变化的过渡效果 */
+  margin-left: auto;
+}
+
+.thisweek-header button:hover {
+  background-color: #e4be04; /* 设置按钮悬停时的背景颜色 */
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
