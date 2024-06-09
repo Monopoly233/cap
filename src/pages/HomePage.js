@@ -1,10 +1,10 @@
 import React from 'react';
+import Main from '../Main';
 
 function HomePage() {
   return (
     <div>
-      <h1>Home Page</h1>
-      {/* Add your home page content here */}
+      <Main />
     </div>
   );
 }

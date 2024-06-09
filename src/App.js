@@ -13,25 +13,20 @@ import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <>
-    <div className = "header-container">
-    <Header />
-    <Nav />
-    </div>
-    <Main />
-    <Footer />
-    <Router> {/* 在这里包裹你的路由组件 */}
-      <div>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/reservations" element={<ReservationsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+    <Router>
+      <div className="header-container">
+        <Header />
+        <Nav />
       </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/reservations" element={<ReservationsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      <Footer />
     </Router>
-    </>
   );
 }
 
