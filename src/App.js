@@ -10,6 +10,7 @@ import AboutPage from './pages/AboutPage';
 import MenuPage from './pages/MenuPage';
 import ReservationsPage from './pages/ReservationsPage.js';
 import ContactPage from './pages/ContactPage';
+import ConfirmedBooking from './pages/ConfirmedBooking';
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/reservations" element={<ReservationsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/confirmed" element={<ConfirmedBooking />} />
       </Routes>
       <Footer />
     </Router>

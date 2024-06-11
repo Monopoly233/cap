@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Res({ availableTimes, dispatch }) {
+function Res({ availableTimes, dispatch, submitForm }) {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [numberOfGuests, setNumberOfGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
   const [testnum, setTestnum] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(selectedTime);
     // 这里可以执行一些依赖于 selectedTime 的操作
   }, [selectedTime]);
-  
+
   const handleDateChange = (e) => {
     setSelectedDate(e.target.value);
     console.log(e.target.value);
@@ -44,6 +46,18 @@ function Res({ availableTimes, dispatch }) {
     console.log(newTestnum);
   };
 
+  const handleSummit = (e) => {
+    e.preventDefault();
+    const formData = {
+      selectedDate,
+      selectedTime,
+      numberOfGuests,
+      occasion,
+      testnum,
+    };
+    submitForm(formData); // 调用 submitForm 函数并传递表单数据
+  };
+
   return (
     <form>
       <label htmlFor="res-date">Choose:</label>
@@ -54,18 +68,18 @@ function Res({ availableTimes, dispatch }) {
         onChange={handleDateChange}
       />
 
-  <div>
-      <label htmlFor="res-time">selected Time</label>
-      <select id="res-time" value={selectedTime} onChange={handleTimeChange}>
-        <option value="">please selecte Time</option>
-        {availableTimes.map((time) => (
-          <option key={time} value={time}>
-            {time}
-          </option>
-        ))}
-      </select>
-      <p>selected Time: {selectedTime}</p>
-    </div>
+      <div>
+        <label htmlFor="res-time">selected Time</label>
+        <select id="res-time" value={selectedTime} onChange={handleTimeChange}>
+          <option value="">please selecte Time</option>
+          {availableTimes.map((time) => (
+            <option key={time} value={time}>
+              {time}
+            </option>
+          ))}
+        </select>
+        <p>selected Time: {selectedTime}</p>
+      </div>
 
       <label htmlFor="guests">Number of guest</label>
       <input
@@ -101,11 +115,15 @@ function Res({ availableTimes, dispatch }) {
         -
       </button>
       {testnum}
-      
+
       <div>
-      <button type="submit">Reserve a Table</button>
+        <button
+          type="submit"
+          onClick={handleSummit}
+        >
+          Reserve a Table
+        </button>
       </div>
-      
     </form>
   );
 }
