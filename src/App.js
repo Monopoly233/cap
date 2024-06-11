@@ -10,7 +10,6 @@ import AboutPage from './pages/AboutPage';
 import MenuPage from './pages/MenuPage';
 import ReservationsPage from './pages/ReservationsPage.js';
 import ContactPage from './pages/ContactPage';
-
 function App() {
   return (
     <Router>

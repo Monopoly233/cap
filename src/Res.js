@@ -101,6 +101,11 @@ function Res({ availableTimes, dispatch }) {
         -
       </button>
       {testnum}
+      
+      <div>
+      <button type="submit">Reserve a Table</button>
+      </div>
+      
     </form>
   );
 }
