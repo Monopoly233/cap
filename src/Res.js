@@ -3,16 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Res({ availableTimes, dispatch, submitForm }) {
   const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTime, setSelectedTime] = useState('');
+  const [selectedTime, setSelectedTime] = useState("");
   const [numberOfGuests, setNumberOfGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
   const [testnum, setTestnum] = useState(0);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log(selectedTime);
-    // 这里可以执行一些依赖于 selectedTime 的操作
-  }, [selectedTime]);
 
   const handleDateChange = (e) => {
     setSelectedDate(e.target.value);
@@ -58,20 +53,34 @@ function Res({ availableTimes, dispatch, submitForm }) {
     submitForm(formData); // 调用 submitForm 函数并传递表单数据
   };
 
+  const isFormValid = () => {
+    return (
+      selectedDate !== '' &&
+      selectedTime !== '' &&
+      numberOfGuests >= 1 &&
+      numberOfGuests <= 10
+    );
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSummit}>
       <label htmlFor="res-date">Choose:</label>
       <input
         type="date"
         id="res-date"
         value={selectedDate}
         onChange={handleDateChange}
+        required
       />
 
       <div>
         <label htmlFor="res-time">selected Time</label>
-        <select id="res-time" value={selectedTime} onChange={handleTimeChange}>
-          <option value="">please selecte Time</option>
+        <select
+          id="res-time"
+          value={selectedTime}
+          onChange={handleTimeChange}
+        >
+          <option value="">Please select a time</option>
           {availableTimes.map((time) => (
             <option key={time} value={time}>
               {time}
@@ -80,7 +89,7 @@ function Res({ availableTimes, dispatch, submitForm }) {
         </select>
         <p>selected Time: {selectedTime}</p>
       </div>
-
+      <div>
       <label htmlFor="guests">Number of guest</label>
       <input
         type="number"
@@ -90,37 +99,22 @@ function Res({ availableTimes, dispatch, submitForm }) {
         id="guests"
         value={numberOfGuests}
         onChange={handleGuestsChange}
+        required
       />
+      </div>
       <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" value={occasion} onChange={handleOccasionChange}>
+      <select
+        id="occasion"
+        value={occasion}
+        onChange={handleOccasionChange}
+        required
+      >
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
-      <label htmlFor="testnum">Testnum</label>
-
-      <button
-        type="button"
-        id="testnum-plus"
-        value={testnum}
-        onClick={handleTestnumChange}
-      >
-        +
-      </button>
-      <button
-        type="button"
-        id="testnum-minus"
-        value={testnum}
-        onClick={handleTestnumChange1}
-      >
-        -
-      </button>
-      {testnum}
 
       <div>
-        <button
-          type="submit"
-          onClick={handleSummit}
-        >
+        <button type="submit" disabled={!isFormValid()} aria-label="Submit Reservation">
           Reserve a Table
         </button>
       </div>

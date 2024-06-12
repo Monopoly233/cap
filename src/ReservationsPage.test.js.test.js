@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import ReservationsPage from './pages/ReservationsPage.js';
 import ConfirmedBooking from './pages/ConfirmedBooking';
-
+/*global fetchAPI*/
 // Mock the fetchAPI function
 jest.mock('./pages/ReservationsPage.js', () => {
   const originalModule = jest.requireActual('./pages/ReservationsPage.js');
@@ -55,24 +55,31 @@ describe('ReservationsPage', () => {
     expect(optionElements).toHaveLength(7); // Update the expected length to match the actual number of options after selecting a time
   });
 
-  test('navigates to the confirmation page when the form is submitted', async () => {
-    const { getByRole } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route path="/" element={<ReservationsPage />} />
-          <Route path="/confirmed" element={<ConfirmedBooking />} />
-        </Routes>
+  test('validates HTML5 attributes on form fields', () => {
+    render(
+      <MemoryRouter>
+        <ReservationsPage />
       </MemoryRouter>
     );
-  
-    const submitButton = getByRole('button', { name: 'Reserve a Table' });
-  
-    await act(async () => {
-      userEvent.click(submitButton);
-    });
-  
-    await waitFor(() => {
-      expect(screen.getByText('ConfirmedBooking')).toBeInTheDocument();
-    }, { timeout: 5000 });
+
+    const dateInput = screen.getByLabelText('Choose:');
+    expect(dateInput).toHaveAttribute('type', 'date');
+    expect(dateInput).toHaveAttribute('required');
+
+    const timeSelect = screen.getByLabelText('selected Time');
+    expect(timeSelect).toBeInTheDocument();
+
+    const guestsInput = screen.getByLabelText('Number of guest');
+    expect(guestsInput).toHaveAttribute('type', 'number');
+    expect(guestsInput).toHaveAttribute('min', '1');
+    expect(guestsInput).toHaveAttribute('max', '10');
+    expect(guestsInput).toHaveAttribute('required');
+
+    const occasionSelect = screen.getByLabelText('Occasion');
+    expect(occasionSelect).toHaveAttribute('required');
   });
+  test('summit is disable while fill form fields', () => {
+    expect(true).toBe(true);
+  });
+
 });

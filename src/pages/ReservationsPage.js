@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ConfirmedBooking from './ConfirmedBooking';
 import { Routes, Route } from 'react-router-dom';
 
+/*global fetchAPI*/
 const initialTimes = () => {
   const today = new Date();
   return fetchAPI(today);
