@@ -5,6 +5,7 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import ReservationsPage from './pages/ReservationsPage.js';
 import ConfirmedBooking from './pages/ConfirmedBooking';
 /*global fetchAPI*/
+
 // Mock the fetchAPI function
 jest.mock('./pages/ReservationsPage.js', () => {
   const originalModule = jest.requireActual('./pages/ReservationsPage.js');
